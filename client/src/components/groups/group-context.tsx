@@ -26,8 +26,8 @@ export const GroupProvider: React.FC<React.PropsWithChildren> = ({ children }) =
         if (!user) return
         try {
             const endpoint = user.role === 'teacher'
-                ? `http://localhost:5000/api/groups/teacher/${user.id}`
-                : `http://localhost:5000/api/groups/student/${user.id}`
+                ? `/api/groups/teacher/${user.id}`
+                : `/api/groups/student/${user.id}`
 
             const res = await fetch(endpoint)
             if (res.ok) {
@@ -46,7 +46,7 @@ export const GroupProvider: React.FC<React.PropsWithChildren> = ({ children }) =
     const createGroup = async (name: string) => {
         if (!user || user.role !== 'teacher') return
         try {
-            const res = await fetch('http://localhost:5000/api/groups', {
+            const res = await fetch('/api/groups', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: name.trim(), teacherId: user.id }),
@@ -63,7 +63,7 @@ export const GroupProvider: React.FC<React.PropsWithChildren> = ({ children }) =
     const joinGroup = async (groupId: string) => {
         if (!user || user.role !== 'student') return
         try {
-            const res = await fetch('http://localhost:5000/api/groups/join', {
+            const res = await fetch('/api/groups/join', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ studentId: user.id, groupId }),
@@ -95,7 +95,7 @@ export const GroupProvider: React.FC<React.PropsWithChildren> = ({ children }) =
     const deleteGroup = async (groupId: string) => {
         if (!user || user.role !== 'teacher') return
         try {
-            const res = await fetch(`http://localhost:5000/api/groups/${groupId}`, {
+            const res = await fetch(`/api/groups/${groupId}`, {
                 method: 'DELETE',
             })
 

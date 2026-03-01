@@ -38,7 +38,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const fetchTopics = async (groupId: string) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/topics/group/${groupId}`)
+      const res = await fetch(`/api/topics/group/${groupId}`)
       if (res.ok) {
         const data = await res.json()
         setTopics(data)
@@ -50,7 +50,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const fetchFeedback = async (topicId: string) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/feedback/topic/${topicId}`)
+      const res = await fetch(`/api/feedback/topic/${topicId}`)
       if (res.ok) {
         const data = await res.json()
         setFeedback(data) // Note: This sets feedback for the currently viewed topic
@@ -62,7 +62,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const addTopic: TopicContextValue['addTopic'] = async (data) => {
     try {
-      const res = await fetch('http://localhost:5000/api/topics', {
+      const res = await fetch('/api/topics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -78,7 +78,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const deleteTopic: TopicContextValue['deleteTopic'] = async (topicId) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/topics/${topicId}`, {
+      const res = await fetch(`/api/topics/${topicId}`, {
         method: 'DELETE',
       })
       if (!res.ok) {
@@ -94,7 +94,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const addFeedback: TopicContextValue['addFeedback'] = async (data) => {
     try {
-      const res = await fetch('http://localhost:5000/api/feedback', {
+      const res = await fetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -110,7 +110,7 @@ export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) =
 
   const toggleReviewed: TopicContextValue['toggleReviewed'] = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/feedback/${id}/review`, {
+      const res = await fetch(`/api/feedback/${id}/review`, {
         method: 'PATCH',
       })
       if (res.ok) {

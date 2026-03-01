@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   const login = async (role: 'teacher' | 'student', payload: any) => {
     try {
       const endpoint = role === 'teacher' ? '/api/auth/login/teacher' : '/api/auth/login/student'
-      const res = await fetch(`http://localhost:5000${endpoint}`, {
+      const res = await fetch(`${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -56,7 +56,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   const joinGroup = async (groupId: string) => {
     if (!user || user.role !== 'student') return
     try {
-      const res = await fetch('http://localhost:5000/api/groups/join', {
+      const res = await fetch('/api/groups/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ studentId: user.id, groupId }),

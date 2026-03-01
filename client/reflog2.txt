@@ -1,0 +1,8 @@
+﻿2c55c66 HEAD@{0}: pull origin main --rebase (finish): returning to refs/heads/main
+2c55c66 HEAD@{1}: pull origin main --rebase (pick): Configure Vite output to build and apply recent fixes
+8b4b1fc HEAD@{2}: pull origin main --rebase (start): checkout 8b4b1fcb160a3d6ff72dc1951111fe06288c971d
+a42546b HEAD@{3}: commit: Configure Vite output to build and apply recent fixes
+aba4dae HEAD@{4}: commit: Configure Vite output to build and apply recent fixes
+ebefdc6 HEAD@{5}: reset: moving to origin/main
+29a782f HEAD@{6}: commit: Configure Vite output to build
+dfe4145 HEAD@{7}: commit (initial): Initial commit for Anonymous Feedback System
