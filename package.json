@@ -1,5 +1,6 @@
 {
   "name": "cipherfeedback-root",
+  "main": "server/src/index.js",
   "private": true,
   "workspaces": [
     "client",
