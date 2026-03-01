@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 require('dotenv').config()
 
 const authRoutes = require('./routes/auth')
@@ -16,6 +17,14 @@ app.use('/api/auth', authRoutes)
 app.use('/api/groups', groupRoutes)
 app.use('/api/topics', topicRoutes)
 app.use('/api/feedback', feedbackRoutes)
+
+// 1. Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+// 2. Handle any requests that don't match the API routes
+app.use((req, res, next) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 8080
 

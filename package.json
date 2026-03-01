@@ -1,13 +1,24 @@
 {
-  "name": "cipherfeedback-root",
-  "main": "server/src/index.js",
-  "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "name": "server",
+  "version": "1.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "build": "cd server && npm run build",
-    "start": "cd server && npm start"
+    "build": "cd client && npm install && npm run build",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.18.2"
   }
 }
