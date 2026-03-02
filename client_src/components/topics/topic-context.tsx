@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import React, { createContext, useContext, useMemo, useState } from 'react'
 
 export interface Topic {
   id: string
@@ -29,8 +29,7 @@ interface TopicContextValue {
 
 const TopicContext = createContext<TopicContextValue | undefined>(undefined)
 
-const TOPIC_KEY = 'cipherfeedback_topics'
-const FEEDBACK_KEY = 'cipherfeedback_feedback'
+
 
 export const TopicProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [topics, setTopics] = useState<Topic[]>([])

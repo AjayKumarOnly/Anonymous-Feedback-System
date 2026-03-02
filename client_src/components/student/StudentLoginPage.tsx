@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { GraduationCap, Mail, ShieldCheck, LockKeyhole } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { GraduationCap, LockKeyhole } from 'lucide-react'
 import { useAuth } from '../staff/auth-context'
 
 export const StudentLoginPage: React.FC = () => {
